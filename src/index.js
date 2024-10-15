@@ -50,8 +50,7 @@ function App() {
   return (
     <div>
       <Header />;
-      <Pizza />;
-      <Pizza />;
+      <Menu />
       <Footer />;
     </div>
   );
@@ -61,21 +60,29 @@ function Header() {
   return <h1>Fast React Pizza Co.</h1>;
 }
 function Menu() {
-  return <h1>Fast React Pizza Co.</h1>;
+  return (
+    <div>
+      <h2>Our menu</h2>
+      <Pizza />
+      <Pizza />
+      <Pizza />
+    </div>
+  );
 }
 function Footer() {
-  return react.createElement(
-    "footer",
-    null,
-    "we're currently closed for a while"
-  );
+  return <footer>we are open @ {new Date().toLocaleTimeString()} </footer>;
+  //   return react.createElement(
+  //     "footer",
+  //     null,
+  //     "we're currently closed for a while"
+  //   );
   //   return <h1>Fast React Pizza Co.</h1>;
 }
 function Pizza() {
   return (
     <div>
-      <h2>Pizza Spinaci</h2>
-      <h2>Tomato, mozarella, spinach, and ricotta cheese</h2>;
+      {/* <h2>Pizza Spinaci</h2>
+      <h2>Tomato, mozarella, spinach, and ricotta cheese</h2>; */}
       <img src="pizzas/spinaci.jpg" alt="pizza spinaci"></img>;
     </div>
   );
