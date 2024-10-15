@@ -51,6 +51,8 @@ function App() {
     <div>
       <h1>Hello everybody!</h1>
       <Pizza />;
+      <Pizza />;
+      <Pizza />;
     </div>
   );
 }
