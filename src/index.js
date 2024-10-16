@@ -102,8 +102,8 @@ function Footer() {
 function Pizza() {
   return (
     <div>
-      {/* <h2>Pizza Spinaci</h2>
-      <h2>Tomato, mozarella, spinach, and ricotta cheese</h2>; */}
+      <h2>Pizza Spinaci</h2>
+      <h2>Tomato, mozarella, spinach, and ricotta cheese</h2>;
       <img src="pizzas/spinaci.jpg" alt="pizza spinaci"></img>;
     </div>
   );
