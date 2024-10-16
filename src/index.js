@@ -109,6 +109,7 @@ function Pizza() {
   );
 }
 // adding a comment
+// reacts that are above 18 are more appropriate to use
 // react v18
 const root = ReactDom.createRoot(document.getElementById("root"));
 root.render(<App />);
