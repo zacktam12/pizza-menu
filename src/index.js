@@ -108,6 +108,7 @@ function Pizza() {
     </div>
   );
 }
+// adding a comment
 // react v18
 const root = ReactDom.createRoot(document.getElementById("root"));
 root.render(<App />);
