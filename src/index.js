@@ -72,12 +72,19 @@ function Menu() {
 }
 
 function Pizza({ pizza }) {
+  const handleClick = () => {
+    alert(`You selected: ${pizza.name}`);
+  };
+
   return (
     <div>
       <h3>{pizza.name}</h3>
       <p>{pizza.ingredients}</p>
       <img src={pizza.photoName} alt={pizza.name} />
       <p>{pizza.soldOut ? "Sold Out" : `$${pizza.price}`}</p>
+      <button onClick={handleClick} disabled={pizza.soldOut}>
+        Select Pizza
+      </button>
     </div>
   );
 }
