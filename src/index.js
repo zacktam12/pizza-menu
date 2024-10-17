@@ -1,45 +1,45 @@
 import React, { useState, useEffect } from "react";
-import ReactDom from "react-dom/client";
+import ReactDOM from "react-dom/client";
 
 const pizzaData = [
   {
     name: "Focaccia",
-    ingredients: "Bread with italian olive oil and rosemary",
+    ingredients: "Bread with Italian olive oil and rosemary",
     price: 6,
     photoName: "pizzas/focaccia.jpg",
     soldOut: false,
   },
   {
     name: "Pizza Margherita",
-    ingredients: "Tomato and mozarella",
+    ingredients: "Tomato and mozzarella",
     price: 10,
     photoName: "pizzas/margherita.jpg",
     soldOut: false,
   },
   {
     name: "Pizza Spinaci",
-    ingredients: "Tomato, mozarella, spinach, and ricotta cheese",
+    ingredients: "Tomato, mozzarella, spinach, and ricotta cheese",
     price: 12,
     photoName: "pizzas/spinaci.jpg",
     soldOut: false,
   },
   {
     name: "Pizza Funghi",
-    ingredients: "Tomato, mozarella, mushrooms, and onion",
+    ingredients: "Tomato, mozzarella, mushrooms, and onion",
     price: 12,
     photoName: "pizzas/funghi.jpg",
     soldOut: false,
   },
   {
     name: "Pizza Salamino",
-    ingredients: "Tomato, mozarella, and pepperoni",
+    ingredients: "Tomato, mozzarella, and pepperoni",
     price: 15,
     photoName: "pizzas/salamino.jpg",
     soldOut: true,
   },
   {
     name: "Pizza Prosciutto",
-    ingredients: "Tomato, mozarella, ham, aragula, and burrata cheese",
+    ingredients: "Tomato, mozzarella, ham, arugula, and burrata cheese",
     price: 18,
     photoName: "pizzas/prosciutto.jpg",
     soldOut: false,
@@ -49,9 +49,9 @@ const pizzaData = [
 function App() {
   return (
     <div>
-      <Header />;
+      <Header />
       <Menu />
-      <Footer />;
+      <Footer />
     </div>
   );
 }
@@ -59,26 +59,38 @@ function App() {
 function Header() {
   return <h1>Fast React Pizza Co.</h1>;
 }
+
 function Menu() {
   return (
     <div>
-      <h2>Our menu</h2>
-      <Pizza />
-      <Pizza />
-      <Pizza />
+      <h2>Our Menu</h2>
+      {pizzaData.map((pizza, index) => (
+        <Pizza key={index} pizza={pizza} />
+      ))}
+    </div>
+  );
+}
+
+function Pizza({ pizza }) {
+  return (
+    <div>
+      <h3>{pizza.name}</h3>
+      <p>{pizza.ingredients}</p>
+      <img src={pizza.photoName} alt={pizza.name} />
+      {/* <p>{pizza.soldOut ? "Sold Out" : `$${pizza.price}`}</p> */}
     </div>
   );
 }
 
 function Footer() {
   const [statusMessage, setStatusMessage] = useState("");
-  // getHours() method provide the exact time for us
+
   useEffect(() => {
     const hour = new Date().getHours();
     const openHour = 8;
     const closeHour = 22;
     const message =
-      hour >= openHour && hour <= closeHour ? "We are open" : "We are closed";
+      hour >= openHour && hour < closeHour ? "We are open" : "We are closed";
     setStatusMessage(message);
   }, []);
 
@@ -89,28 +101,5 @@ function Footer() {
   );
 }
 
-// export default Footer;
-//   const isOpen = hour >= openHour && hour <= closeHour;
-//   console.log(isOpen);
-//   return react.createElement(
-//     "footer",
-//     null,
-//     "we're currently closed for a while"
-//   );
-//   return <h1>Fast React Pizza Co.</h1>;
-
-function Pizza() {
-  return (
-    <div>
-      <h2>Pizza Spinaci</h2>
-      <h2>Tomato, mozarella, spinach, and ricotta cheese</h2>;
-      <img src="pizzas/salamino.jpg" alt="pizza spinaci"></img>;
-      <img src="pizzas/margherita.jpg" alt="pizza spinaci"></img>;
-    </div>
-  );
-}
-// adding a comment
-// reacts that are above 18 are more appropriate to use
-// react v18
-const root = ReactDom.createRoot(document.getElementById("root"));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<App />);
