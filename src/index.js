@@ -77,7 +77,7 @@ function Pizza({ pizza }) {
       <h3>{pizza.name}</h3>
       <p>{pizza.ingredients}</p>
       <img src={pizza.photoName} alt={pizza.name} />
-      {/* <p>{pizza.soldOut ? "Sold Out" : `$${pizza.price}`}</p> */}
+      <p>{pizza.soldOut ? "Sold Out" : `$${pizza.price}`}</p>
     </div>
   );
 }
