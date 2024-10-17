@@ -105,6 +105,7 @@ function Pizza() {
       <h2>Pizza Spinaci</h2>
       <h2>Tomato, mozarella, spinach, and ricotta cheese</h2>;
       <img src="pizzas/salamino.jpg" alt="pizza spinaci"></img>;
+      <img src="pizzas/margherita.jpg" alt="pizza spinaci"></img>;
     </div>
   );
 }
