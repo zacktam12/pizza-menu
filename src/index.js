@@ -71,34 +71,34 @@ function Menu() {
 }
 
 function Footer() {
-  const [statusMessage, setStatusMessage] = useState("");
+  //   const [statusMessage, setStatusMessage] = useState("");
 
-  useEffect(() => {
-    const hour = new Date().getHours();
-    const openHour = 8;
-    const closeHour = 22;
-    const message =
-      hour >= openHour && hour <= closeHour ? "We are open" : "We are closed";
-    setStatusMessage(message);
-  }, []);
+    useEffect(() => {
+      const hour = new Date().getHours();
+      const openHour = 8;
+      const closeHour = 22;
+  //     const message =
+  //       hour >= openHour && hour <= closeHour ? "We are open" : "We are closed";
+  //     setStatusMessage(message);
+  //   }, []);
 
-  return (
-    <footer>
-      <p>{statusMessage}</p>
-    </footer>
+  //   return (
+  //     <footer>
+  //       <p>{statusMessage}</p>
+  //     </footer>
+  //   );
+  // }
+
+  // export default Footer;
+  const isOpen = hour >= openHour && hour <= closeHour;
+  console.log(isOpen);
+  return react.createElement(
+    "footer",
+    null,
+    "we're currently closed for a while"
   );
-}
-
-// export default Footer;
-//   const isOpen = hour >= openHour && hour <= closeHour;
-//   console.log(isOpen);
-//   return react.createElement(
-//     "footer",
-//     null,
-//     "we're currently closed for a while"
-//   );
-//   return <h1>Fast React Pizza Co.</h1>;
-
+  return <h1>Fast React Pizza Co.</h1>;
+};
 function Pizza() {
   return (
     <div>
