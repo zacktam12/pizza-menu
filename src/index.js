@@ -81,32 +81,22 @@ function Pizza({ pizza }) {
       <h3>{pizza.name}</h3>
       <p>{pizza.ingredients}</p>
       <img src={pizza.photoName} alt={pizza.name} />
-      <p>{pizza.soldOut ? "Sold Out" : `$${pizza.price}`}</p>
-      <button onClick={handleClick} disabled={pizza.soldOut}>
-        Select Pizza
-      </button>
     </div>
   );
 }
 
 function Footer() {
-  const [statusMessage, setStatusMessage] = useState("");
+  const hour = new Date().getHours();
+  console.log(hour);
+  const openHour = 12;
+  const closeHour = 22;
 
-  useEffect(() => {
-    const hour = new Date().getHours();
-    const openHour = 8;
-    const closeHour = 22;
-    const message =
-      hour >= openHour && hour < closeHour ? "We are open" : "We are closed";
-    setStatusMessage(message);
-  }, []);
-
+  if (hour >= openHour && hour < closeHour) alert("We are open");
+  else alert(" Sorry We are closed");
   return (
-    <footer>
-      <p>{statusMessage}</p>
-    </footer>
+    <footer>{new Date().toLocaleTimeString()}.We're currently Open</footer>
   );
 }
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<App />);
+// const root = ReactDOM.createRoot(document.getElementById("root"));
+// root.render(<App />);
