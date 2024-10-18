@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from "react";
+import { render } from "@testing-library/react";
+import React from "react";
 import ReactDOM from "react-dom/client";
+// import "./index.css";
 
 const pizzaData = [
   {
@@ -52,42 +54,18 @@ function App() {
       <Header />
       <Menu />
       <Footer />
+      <Pizza />
     </div>
   );
 }
-
 function Header() {
-  return <h1>Fast React Pizza Co.</h1>;
-}
+  const style = { color: "red", fontSize: "48px", textTransform: " uppercase" };
 
-function Menu() {
-  return (
-    <div>
-      <h2>Our Menu</h2>
-      {pizzaData.map((pizza, index) => (
-        <Pizza key={index} pizza={pizza} />
-      ))}
-    </div>
-  );
-}
-
-function Pizza({ pizza }) {
-  const handleClick = () => {
-    alert(`You selected: ${pizza.name}`);
-  };
-
-  return (
-    <div>
-      <h3>{pizza.name}</h3>
-      <p>{pizza.ingredients}</p>
-      <img src={pizza.photoName} alt={pizza.name} />
-    </div>
-  );
+  return <h1 style={style}>Fast React Pizza Co.</h1>;
 }
 
 function Footer() {
   const hour = new Date().getHours();
-  console.log(hour);
   const openHour = 12;
   const closeHour = 22;
 
@@ -97,6 +75,22 @@ function Footer() {
     <footer>{new Date().toLocaleTimeString()}.We're currently Open</footer>
   );
 }
+function Menu() {
+  return (
+    <div>
+      <h2>Our menu</h2>
+      <Pizza />
+    </div>
+  );
+}
 
-// const root = ReactDOM.createRoot(document.getElementById("root"));
-// root.render(<App />);
+function Pizza() {
+  return (
+    <div>
+      <img src="pizzas/spinaci.jpg" alt="pizza spinaci" />
+      <h2>pizza spinaci</h2>
+    </div>
+  );
+}
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<App />);
