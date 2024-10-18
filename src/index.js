@@ -50,20 +50,41 @@ const pizzaData = [
 
 function App() {
   return (
-    <div>
+    <div claasName="container">
       <Header />
       <Menu />
-      <Footer />
       <Pizza />
+      <Footer />
     </div>
   );
 }
 function Header() {
   const style = { color: "red", fontSize: "48px", textTransform: " uppercase" };
-
-  return <h1 style={style}>Fast React Pizza Co.</h1>;
+  return (
+    <header className="header">
+      <h1 style={style}>Fast React Pizza Co.</h1>;
+    </header>
+  );
 }
 
+function Menu() {
+  return (
+    <main className="menu">
+      <div>
+        <h2>Our menu</h2>
+      </div>
+    </main>
+  );
+}
+
+function Pizza() {
+  return (
+    <div>
+      <img src="pizzas/spinaci.jpg" alt="pizza spinaci" />
+      <h3>pizza spinaci</h3>
+    </div>
+  );
+}
 function Footer() {
   const hour = new Date().getHours();
   const openHour = 12;
@@ -72,24 +93,9 @@ function Footer() {
   if (hour >= openHour && hour < closeHour) alert("We are open");
   else alert(" Sorry We are closed");
   return (
-    <footer>{new Date().toLocaleTimeString()}.We're currently Open</footer>
-  );
-}
-function Menu() {
-  return (
-    <div>
-      <h2>Our menu</h2>
-      <Pizza />
-    </div>
-  );
-}
-
-function Pizza() {
-  return (
-    <div>
-      <img src="pizzas/spinaci.jpg" alt="pizza spinaci" />
-      <h2>pizza spinaci</h2>
-    </div>
+    <footer className="footer">
+      {new Date().toLocaleTimeString()}.We're currently Open
+    </footer>
   );
 }
 const root = ReactDOM.createRoot(document.getElementById("root"));
