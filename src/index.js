@@ -53,8 +53,8 @@ function App() {
     <div claasName="container">
       <Header />
       <Menu />
-      <Pizza />
-      <Pizza />
+      {/* <Pizza />
+      <Pizza /> */}
 
       <Footer />
     </div>
@@ -81,7 +81,12 @@ function Menu() {
           price="10"
         />
       </div>
-      {/* <Pizza name ="Pizza fungji"/> */}
+      <Pizza
+        name="Pizza funghi"
+        ingredient="Tomato ,mushrooms"
+        price="12"
+        photoName="pizzas/funghi.jpg"
+      />
     </main>
   );
 }
