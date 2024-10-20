@@ -72,50 +72,54 @@ function Header() {
 function Menu() {
   return (
     <main className="menu">
-      <div>
-        <h2>Our menu</h2>
+      <h2>Our menu</h2>
+      <ul className="pizzas">
+        {pizzaData.map((pizza) => (
+          <Pizza pizzaObj={pizza} key={pizza.name} />
+        ))}
+      </ul>
+      {/* <div>
         <Pizza
           name="Pizza Spinaci"
-          ingredient="Tomato, mozzarella, spinach, and ricotta cheese"
+          ingredients="Tomato, mozzarella, spinach, and ricotta cheese"
           photoName="pizzas/spinaci.jpg"
           price={10}
         />
       </div>
       <Pizza
         name="Pizza funghi"
-        ingredient="Tomato ,mushrooms"
+        ingredients="Tomato ,mushrooms"
         price={12}
         photoName="pizzas/funghi.jpg"
       />
       <Pizza
-        name="Pizza funghi"
-        ingredient="Tomato ,mushrooms"
-        price={12}
+        name="Pizza salamino"
+        ingredients="Tomato, mozzarella, and pepperoni"
+        price={15}
         photoName="pizzas/salamino.jpg"
-      />
+      /> */}
     </main>
   );
 }
-
 function Pizza(props) {
   return (
-    <div className="pizza">
-      <img src={props.photoName} alt="pizza spinaci" />
+    <li className="pizza">
+      <img src={props.pizzaObj.photoName} alt="pizza spinaci" />
       <div>
-        <h3>{props.name}</h3>
-        <p>{props.ingredient}</p>
-        <span>{props.price + 3}</span>
+        <h3>{props.pizzaObj.name}</h3>
+        <p>{props.pizzaObj.ingredients}</p>
+        <span>{props.pizzaObj.price + 3}</span>
       </div>
-    </div>
+    </li>
   );
 }
 function Footer() {
-  const hour = new Date().getHours();
-  const openHour = 12;
-  const closeHour = 22;
+  // const hour = new Date().getHours();
+  // const openHour = 12;
+  // const closeHour = 22;
 
-  if (hour >= openHour && hour < closeHour) alert("We are open");
-  else alert(" Sorry We are closed");
+  // if (hour >= openHour && hour < closeHour) alert("We are open");
+  // else alert(" Sorry We are closed");
   return (
     <footer className="footer">
       {new Date().toLocaleTimeString()}.We're currently Open
